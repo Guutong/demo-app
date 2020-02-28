@@ -1,0 +1,26 @@
+<form id="formAddTodo" class="card" [formGroup]="todoForm">
+  <div class="card-body">
+    <div class="form-group">
+      <label for="title">Task</label>
+      <input class="form-control" id="title" type="text" formControlName="title" [ngClass]="{'is-valid': (todoForm.controls.title.touched && todoForm.controls.title.valid), 'is-invalid': ((todoForm.controls.title.touched || todoForm.controls.title.dirty) && todoForm.controls.title.invalid)}"/>
+      <div *ngIf="(todoForm.controls.title.touched || todoForm.controls.title.dirty) && todoForm.controls.title.invalid" class="invalid-feedback">
+        Please choose a title.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="detail">Detail</label>
+      <input class="form-control" id="detail" type="text" formControlName="detail" [ngClass]="{'is-valid': (todoForm.controls.detail.touched && todoForm.controls.detail.valid), 'is-invalid': ((todoForm.controls.detail.touched || todoForm.controls.detail.dirty) && todoForm.controls.detail.invalid)}"/>
+      <div *ngIf="(todoForm.controls.detail.touched || todoForm.controls.detail.dirty) && todoForm.controls.detail.invalid" class="invalid-feedback">
+        Please choose a detail.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input class="form-control" id="category" type="text" formControlName="category" [ngClass]="{'is-valid': (todoForm.controls.category.touched && todoForm.controls.category.valid), 'is-invalid': ((todoForm.controls.category.touched || todoForm.controls.category.dirty) && todoForm.controls.category.invalid)}"/>
+      <div *ngIf="(todoForm.controls.category.touched || todoForm.controls.category.dirty) && todoForm.controls.category.invalid" class="invalid-feedback">
+        Please choose a category.
+      </div>
+    </div>
+    <input id="buttonOK" class="btn btn-primary mb-2" type="button" value="OK" (click)="add()" [disabled]="todoForm.invalid" />
+  </div>
+</form>

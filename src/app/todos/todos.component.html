@@ -1,0 +1,22 @@
+<a id="buttonAddTodo" routerLink="/todos/add" class="btn btn-primary">add</a>
+<div class="container pt-2 pb-2 align-middle">
+  <div class="row border-bottom" >
+    <div class="col">ID</div>
+    <div class="col">title</div>
+    <div class="col">detail</div>
+    <div class="col">category</div>
+    <div class="col">status</div>
+    <div class="col"></div>
+  </div>
+  <div class="row border-bottom pt-2 pb-2 d-flex justify-content-center align-items-center" *ngFor="let item of todos" >
+    <div class="col">{{item.id}}</div>
+    <div class="col">{{item.title}}</div>
+    <div class="col">{{item.detail}}</div>
+    <div class="col">{{item.category}}</div>
+    <div class="col">{{item.status}}</div>
+    <div class="col">
+      <button id="buttonDeleteTodo" class="btn btn-danger mx-2" (click)="delete(item)">delete</button>
+      <button id="buttonEditTodo" class="btn btn-success mx-2" routerLink="/todos/edit/{{item.id}}">edit</button>
+    </div>
+  </div>
+</div>
